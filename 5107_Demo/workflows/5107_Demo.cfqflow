@@ -1,11 +1,11 @@
 {
 	"document_type":	"application/vnd.nixps-whitepaper+json",
-	"_id":	"5bbbb58a4b0e001300000008",
+	"_id":	"5bbbba09060200ec00000008",
 	"birth":	"2018-10-08T19:52:42Z",
 	"name":	"5107_Demo",
 	"run_state":	"ready",
-	"save_id":	"2cc1b036-fea3-4477-9b86-a238ef94a9b4",
-	"modification":	"2018-10-08T19:52:48Z",
+	"save_id":	"4b423d97-7b19-4e81-9305-cbc72392966f",
+	"modification":	"2018-10-08T20:12:22Z",
 	"nodes":	[{
 			"collar":	"com.nixps.quantum.unhandled_problem.0",
 			"title":	"Unhandled Problem",
@@ -25,8 +25,83 @@
 			"selected":	false,
 			"x":	927,
 			"y":	489,
-			"id":	"19356b91-3a97-9684-a9ab-c769a4c3b819"
+			"id":	"ff9c6791-afe6-4ab3-9fc0-2ea6894be633"
+		}, {
+			"collar":	"com.nixps.quantum.start_from_kiosk.0",
+			"title":	"Start From Kiosk",
+			"parameters":	{
+				"name":	"Input Name",
+				"workable_name":	[{
+						"type":	"com.nixps.quantum.value.0",
+						"value":	""
+					}],
+				"jacket_name":	[{
+						"type":	"com.nixps.quantum.value.0",
+						"value":	""
+					}],
+				"priority":	50,
+				"allow_guest":	false,
+				"access_for_scopes":	"",
+				"access_for_attributes":	"",
+				"scope_from_user":	false,
+				"use_project_form":	false,
+				"project_form_name":	"",
+				"project_variable":	"project_data",
+				"options_layout":	{
+			},
+				"options":	[],
+				"upload_files_mode":	"One",
+				"enable_upload":	true,
+				"maximum_upload_mb":	1024,
+				"enable_file_browser":	true,
+				"upload_url":	"cloudflow://PP_FILE_STORE/Incoming/",
+				"upload_time_out":	1440,
+				"handle_files_separately":	false,
+				"category":	"",
+				"work_servers":	[]
+			},
+			"connectors":	[{
+					"id":	"success",
+					"label":	"Success",
+					"type":	"output",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}, {
+					"id":	"failure",
+					"label":	"Failure",
+					"type":	"error",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}],
+			"selected":	false,
+			"x":	127,
+			"y":	265,
+			"id":	"d83b796f-0832-4e36-8aac-c8592d74ce3b"
+		}, {
+			"collar":	"com.nixps.quantum.end.0",
+			"title":	"End",
+			"parameters":	{
+				"delay":	0,
+				"delete_jacket":	false
+			},
+			"connectors":	[{
+					"id":	"input",
+					"label":	"Input",
+					"type":	"input"
+				}],
+			"selected":	false,
+			"x":	304,
+			"y":	266,
+			"id":	"5e2ac3fb-eebb-e046-cc28-3d2564962b79"
 		}],
 	"comments":	[],
-	"connections":	[]
+	"connections":	[{
+			"id":	"5a43f566-ecec-c01e-8ebb-0afaaf86bcc8",
+			"from":	{
+				"node":	"d83b796f-0832-4e36-8aac-c8592d74ce3b",
+				"connector":	"success"
+			},
+			"to":	{
+				"node":	"5e2ac3fb-eebb-e046-cc28-3d2564962b79",
+				"connector":	"input"
+			}
+		}]
 }
