@@ -1,0 +1,32 @@
+{
+	"document_type":	"application/vnd.nixps-whitepaper+json",
+	"_id":	"5bbbb58a4b0e001300000008",
+	"birth":	"2018-10-08T19:52:42Z",
+	"name":	"5107_Demo",
+	"run_state":	"ready",
+	"save_id":	"2cc1b036-fea3-4477-9b86-a238ef94a9b4",
+	"modification":	"2018-10-08T19:52:48Z",
+	"nodes":	[{
+			"collar":	"com.nixps.quantum.unhandled_problem.0",
+			"title":	"Unhandled Problem",
+			"parameters":	{
+				"delay":	3600
+			},
+			"connectors":	[{
+					"id":	"input",
+					"label":	"Input",
+					"type":	"input"
+				}, {
+					"id":	"failure",
+					"label":	"Failure",
+					"type":	"error",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}],
+			"selected":	false,
+			"x":	927,
+			"y":	489,
+			"id":	"19356b91-3a97-9684-a9ab-c769a4c3b819"
+		}],
+	"comments":	[],
+	"connections":	[]
+}
