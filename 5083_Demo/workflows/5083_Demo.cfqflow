@@ -1,11 +1,11 @@
 {
 	"document_type":	"application/vnd.nixps-whitepaper+json",
-	"_id":	"5bbbc22c3f0600c100000008",
+	"_id":	"5bbcbd3f4f06002600000008",
 	"birth":	"2018-10-08T20:46:36Z",
 	"name":	"5083_Demo",
 	"run_state":	"ready",
-	"save_id":	"ca79b0de-bbc1-4f64-8887-df71202bc222",
-	"modification":	"2018-10-08T20:47:02Z",
+	"save_id":	"312a2002-4e31-45d5-8f37-3c818be024f1",
+	"modification":	"2018-10-09T14:38:13Z",
 	"nodes":	[{
 			"collar":	"com.nixps.quantum.unhandled_problem.0",
 			"title":	"Unhandled Problem",
@@ -25,7 +25,7 @@
 			"selected":	false,
 			"x":	927,
 			"y":	489,
-			"id":	"0e7bbc6e-4d7d-b5b6-325e-d03ac0ee2f99"
+			"id":	"f3bba519-6d38-4586-b5f9-b26b2c2dd9ef"
 		}, {
 			"collar":	"com.nixps.quantum.end.0",
 			"title":	"End",
@@ -39,9 +39,9 @@
 					"type":	"input"
 				}],
 			"selected":	false,
-			"x":	399,
-			"y":	399,
-			"id":	"e2233edc-dd75-3711-8f18-97443a3c0ca9"
+			"x":	456,
+			"y":	285,
+			"id":	"d1848918-38c7-4022-8b11-8b3fbad19b10"
 		}, {
 			"collar":	"com.nixps.quantum.start_from_kiosk.0",
 			"title":	"Start From Kiosk",
@@ -88,19 +88,63 @@
 					"collar":	"com.nixps.quantum.conductor.0"
 				}],
 			"selected":	false,
-			"x":	247,
-			"y":	399,
-			"id":	"5240d68e-db9c-550a-78d3-6def5dd11778"
+			"x":	228,
+			"y":	285,
+			"id":	"0d4450ca-feed-4dcd-ac24-0bd7d5f689dd"
+		}, {
+			"collar":	"com.nixps.quantum.copy_file.0",
+			"title":	"Copy File",
+			"parameters":	{
+				"files":	[{
+						"type":	"com.nixps.quantum.data_from_previous_node.0"
+					}],
+				"to_file_or_folder":	[{
+						"type":	"com.nixps.quantum.value.0",
+						"value":	""
+					}],
+				"create_folders":	false,
+				"overwrite":	false,
+				"unique_name_mode":	"None"
+			},
+			"connectors":	[{
+					"id":	"input",
+					"label":	"Input",
+					"type":	"input"
+				}, {
+					"id":	"success",
+					"label":	"Success",
+					"type":	"output",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}, {
+					"id":	"failure",
+					"label":	"Failure",
+					"type":	"error",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}],
+			"selected":	false,
+			"x":	342,
+			"y":	285,
+			"id":	"994d6469-c014-49af-a939-e35d49381a1b"
 		}],
 	"comments":	[],
 	"connections":	[{
-			"id":	"b0081196-b6b1-ed3c-1e5a-f58fb7138516",
+			"id":	"4c014376-d63a-7c72-403c-1ce4dcaf5157",
 			"from":	{
-				"node":	"5240d68e-db9c-550a-78d3-6def5dd11778",
+				"node":	"0d4450ca-feed-4dcd-ac24-0bd7d5f689dd",
 				"connector":	"success"
 			},
 			"to":	{
-				"node":	"e2233edc-dd75-3711-8f18-97443a3c0ca9",
+				"node":	"994d6469-c014-49af-a939-e35d49381a1b",
+				"connector":	"input"
+			}
+		}, {
+			"id":	"b1953abc-7166-7d17-fea8-6f8b22a0bb12",
+			"from":	{
+				"node":	"994d6469-c014-49af-a939-e35d49381a1b",
+				"connector":	"success"
+			},
+			"to":	{
+				"node":	"d1848918-38c7-4022-8b11-8b3fbad19b10",
 				"connector":	"input"
 			}
 		}]
