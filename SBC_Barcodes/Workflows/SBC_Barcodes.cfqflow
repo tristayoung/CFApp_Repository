@@ -1,0 +1,1915 @@
+{
+	"document_type":	"application/vnd.nixps-whitepaper+json",
+	"_id":	"5c3c9da4400b004b00000007",
+	"birth":	"2018-11-07T11:07:00Z",
+	"name":	"SBC_Barcodes",
+	"run_state":	"ready",
+	"save_id":	"dd410bde-0e68-46e5-917e-240ebd061276",
+	"modification":	"2019-02-01T14:30:13Z",
+	"nodes":	[{
+			"collar":	"com.nixps.quantum.unhandled_problem.0",
+			"title":	"Unhandled Problem",
+			"parameters":	{
+				"delay":	3600
+			},
+			"connectors":	[{
+					"id":	"input",
+					"label":	"Input",
+					"type":	"input"
+				}, {
+					"id":	"failure",
+					"label":	"Failure",
+					"type":	"error",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}],
+			"selected":	false,
+			"x":	1672,
+			"y":	608,
+			"id":	"568f7445-ab3d-4c92-bda1-2dae95600460"
+		}, {
+			"collar":	"com.nixps.quantum.data.repeat.0",
+			"title":	"Repeat",
+			"parameters":	{
+				"mode":	"EnumerateJSONArray",
+				"multiple_workables":	false,
+				"data":	[{
+						"type":	"com.nixps.quantum.variable.0",
+						"variable":	"barcodes"
+					}],
+				"counter_nr_repeats":	1,
+				"data_select_sub_json":	true,
+				"data_update_json":	false,
+				"data_sub_json_in_variable":	true,
+				"variable":	"repeat",
+				"reset_variables":	false
+			},
+			"connectors":	[{
+					"id":	"input",
+					"label":	"Input",
+					"type":	"input"
+				}, {
+					"id":	"next",
+					"label":	"Next",
+					"type":	"input"
+				}, {
+					"id":	"success",
+					"label":	"Success",
+					"type":	"output",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}, {
+					"id":	"repeat",
+					"label":	"Repeat",
+					"type":	"output",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}, {
+					"id":	"failure",
+					"label":	"Failure",
+					"type":	"error",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}],
+			"selected":	false,
+			"x":	1330,
+			"y":	285,
+			"id":	"c6d3c3ef-a713-4243-9b2f-215ceb52a6e0"
+		}, {
+			"collar":	"com.nixps.quantum.house_keeping.0",
+			"title":	"House Keeping",
+			"parameters":	{
+				"activity":	"SetName",
+				"role_type":	"handler",
+				"role_user_name":	[""],
+				"worakble_state_value":	"normal",
+				"name_set_workable":	true,
+				"name_set_jacket":	true,
+				"name_name":	[{
+						"type":	"com.nixps.quantum.variable.0",
+						"variable":	"serviceOrder"
+					}, {
+						"type":	"com.nixps.quantum.value.0",
+						"value":	" - SBC_Barcodes"
+					}],
+				"worakble_scope":	"*",
+				"data_access_scope":	"*",
+				"add_message_to_log":	"",
+				"work_server":	"",
+				"priority":	50,
+				"logging_level":	"",
+				"role_attribute":	[""]
+			},
+			"connectors":	[{
+					"id":	"input",
+					"label":	"Input",
+					"type":	"input"
+				}, {
+					"id":	"success",
+					"label":	"Success",
+					"type":	"output",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}, {
+					"id":	"failure",
+					"label":	"Failure",
+					"type":	"error",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}],
+			"selected":	false,
+			"x":	551,
+			"y":	171,
+			"id":	"e66c076e-5ebe-4768-851e-c8a527036dbc"
+		}, {
+			"collar":	"com.nixps.quantum.script.0",
+			"title":	"Script Barcode Type\n",
+			"parameters":	{
+				"variables":	[{
+						"type":	"com.nixps.quantum.all_variables.0"
+					}],
+				"files":	[{
+						"type":	"com.nixps.quantum.data_from_previous_node.0",
+						"first_only":	false
+					}],
+				"log_function_feedback":	true,
+				"fail_on_function_errors":	true,
+				"include_scripts":	[[{
+							"type":	"com.nixps.quantum.value.0",
+							"value":	""
+						}]],
+				"script_file":	[{
+						"type":	"com.nixps.quantum.value.0",
+						"value":	"cloudflow://PP_FILE_STORE/Javascript/Barcodes/"
+					}, {
+						"type":	"com.nixps.quantum.variable.0",
+						"variable":	"repeat.sub_json.type"
+					}, {
+						"type":	"com.nixps.quantum.value.0",
+						"value":	".js"
+					}],
+				"script":	"",
+				"quantum_work_servers":	[],
+				"quantum_max_concurrent_workers":	0
+			},
+			"connectors":	[{
+					"id":	"input",
+					"label":	"Input",
+					"type":	"input"
+				}, {
+					"id":	"success",
+					"label":	"Success",
+					"type":	"output",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}, {
+					"id":	"failure",
+					"label":	"Failure",
+					"type":	"error",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}],
+			"selected":	false,
+			"x":	1159,
+			"y":	437,
+			"id":	"bc20318e-1736-45f5-b9d7-1ae424027cd4"
+		}, {
+			"collar":	"com.packz.quantum.packzflow.0",
+			"title":	"Live Objects",
+			"parameters":	{
+				"quantum_logicals":	["PACKZFLOW"],
+				"packzflow":	"cloudflowlogical:PACKZFLOW",
+				"packz_action":	{
+					"Title":	"Live Objects",
+					"Action":	"LiveObjects",
+					"Input":	[{
+							"type":	"com.nixps.quantum.parameter.0",
+							"parameter":	"file"
+						}],
+					"InsertLiveObjectParams":	{
+						"Mark":	[{
+								"type":	"com.nixps.quantum.url_to_local_path.0",
+								"url":	[{
+										"type":	"com.nixps.quantum.parameter.0",
+										"parameter":	"liveObject"
+									}]
+							}],
+						"JobID":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"jobID"
+							}],
+						"PageRange":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"pageRange"
+							}],
+						"PageNumber":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"pageNumber"
+							}],
+						"UpdateAll":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"updateAll"
+							}],
+						"LayerBehaviour":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"layerBehaviour"
+							}],
+						"Position":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"position"
+							}]
+					},
+					"Configuration":	[{
+							"type":	"com.nixps.quantum.variable.0",
+							"variable":	"packzflowConfiguration",
+							"default_value":	"{}"
+						}]
+				},
+				"packz_save":	{
+					"Action":	"SAVE",
+					"Input":	[{
+							"type":	"com.nixps.quantum.parameter.0",
+							"parameter":	"file"
+						}],
+					"Output":	[{
+							"type":	"com.nixps.quantum.combine_url.0",
+							"base_url":	[{
+									"type":	"com.nixps.quantum.parameter.0",
+									"parameter":	"file"
+								}],
+							"combine_url":	[{
+									"type":	"com.nixps.quantum.parameter.0",
+									"parameter":	"output_redirect"
+								}]
+						}]
+				},
+				"liveobjects_variables":	[{
+						"type":	"com.nixps.quantum.all_variables.0"
+					}],
+				"liveObject":	"",
+				"jobID":	"",
+				"pageRange":	"first",
+				"pageNumber":	1,
+				"updateAll":	true,
+				"layerBehaviour":	"discard",
+				"position":	"top",
+				"file":	[{
+						"type":	"com.nixps.quantum.data_from_previous_node.0",
+						"first_only":	true
+					}],
+				"output_custom":	[{
+						"type":	"com.nixps.quantum.value.0",
+						"value":	""
+					}],
+				"output_redirect":	[{
+						"type":	"com.nixps.quantum.parameter.0",
+						"parameter":	"output"
+					}],
+				"output":	[{
+						"type":	"com.nixps.quantum.parse_url.0",
+						"url":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"file"
+							}],
+						"parts":	"Name"
+					}, {
+						"type":	"com.nixps.quantum.value.0",
+						"value":	[{
+								"type":	"com.nixps.quantum.value.0",
+								"value":	"_"
+							}, {
+								"type":	"com.nixps.quantum.variable.0",
+								"variable":	"barcode.Code"
+							}, {
+								"type":	"com.nixps.quantum.value.0",
+								"value":	"_"
+							}, {
+								"type":	"com.nixps.quantum.variable.0",
+								"variable":	"repeat.sub_json.mag"
+							}, {
+								"type":	"com.nixps.quantum.value.0",
+								"value":	"_"
+							}, {
+								"type":	"com.nixps.quantum.variable.0",
+								"variable":	"BwrReplaceUnderscore.0"
+							}]
+					}]
+			},
+			"parameter_references":	["packzflow", "packz_action", "packz_save"],
+			"connectors":	[{
+					"id":	"input",
+					"label":	"Input",
+					"type":	"input"
+				}, {
+					"id":	"success",
+					"label":	"Success",
+					"type":	"output",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}, {
+					"id":	"failure",
+					"label":	"Failure",
+					"type":	"error",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}],
+			"variant":	"com.packz.packzflow.liveobjects.1",
+			"selected":	false,
+			"x":	1378,
+			"y":	437,
+			"id":	"81217eb9-fabf-4abd-a907-3b12e5b54f87"
+		}, {
+			"collar":	"com.nixps.quantum.list_folder.0",
+			"title":	"Select Files",
+			"parameters":	{
+				"files":	[{
+						"type":	"com.nixps.quantum.value.0",
+						"value":	"cloudflow://PP_FILE_STORE/Resources/Barcode_Templates/"
+					}, {
+						"type":	"com.nixps.quantum.variable.0",
+						"variable":	"repeat.sub_json.type"
+					}],
+				"recursive":	false,
+				"file_name_pattern":	[{
+						"type":	"com.nixps.quantum.value.0",
+						"value":	".*"
+					}],
+				"expected_nr_files":	"Any"
+			},
+			"connectors":	[{
+					"id":	"input",
+					"label":	"Input",
+					"type":	"input"
+				}, {
+					"id":	"success",
+					"label":	"Success",
+					"type":	"output",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}, {
+					"id":	"failure",
+					"label":	"Failure",
+					"type":	"error",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}],
+			"selected":	false,
+			"x":	1007,
+			"y":	437,
+			"id":	"99e84f3c-e61e-498b-a2e6-bfdfd4aad134"
+		}, {
+			"collar":	"com.nixps.quantum.move_file.0",
+			"title":	"Move File",
+			"parameters":	{
+				"files":	[{
+						"type":	"com.nixps.quantum.data_from_previous_node.0",
+						"first_only":	false
+					}],
+				"to_file_or_folder":	[{
+						"type":	"com.nixps.quantum.variable.0",
+						"variable":	"serviceOrderFolderUrl"
+					}, {
+						"type":	"com.nixps.quantum.value.0",
+						"value":	"/"
+					}, {
+						"type":	"com.nixps.quantum.variable.0",
+						"variable":	"cfgGfsFolders.folder030"
+					}, {
+						"type":	"com.nixps.quantum.value.0",
+						"value":	"/"
+					}],
+				"create_folders":	false,
+				"overwrite":	true,
+				"unique_name_mode":	"None",
+				"delete_enclosing_folder":	false
+			},
+			"connectors":	[{
+					"id":	"input",
+					"label":	"Input",
+					"type":	"input"
+				}, {
+					"id":	"success",
+					"label":	"Success",
+					"type":	"output",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}, {
+					"id":	"failure",
+					"label":	"Failure",
+					"type":	"error",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}],
+			"selected":	false,
+			"x":	1767,
+			"y":	266,
+			"id":	"00475cf1-36cf-4490-a9bc-111242f6e70d"
+		}, {
+			"collar":	"com.nixps.quantum.script.0",
+			"title":	"Script - Barcode",
+			"parameters":	{
+				"variables":	[{
+						"type":	"com.nixps.quantum.all_variables.0"
+					}],
+				"files":	[{
+						"type":	"com.nixps.quantum.value.0",
+						"value":	""
+					}],
+				"log_function_feedback":	true,
+				"fail_on_function_errors":	true,
+				"include_scripts":	[[{
+							"type":	"com.nixps.quantum.value.0",
+							"value":	"cloudflow://PP_FILE_STORE/Javascript/Configure/current/configure.js"
+						}]],
+				"script_file":	"",
+				"script":	"var serviceOrder = getParameters().variables.serviceOrder;\nvar data = _.callFast(serviceOrder);\n        \nvar variables =  _.extract({\n    barcodes: \".. Barcode [{type: ..ZLP_BC_CODE_TYPE_*,number: ..ZLP_BC_CODE_NUMBER_*,bwr: ..ZLP_BC_BWR_*,mag: (..ZLP_BC_MAGNIFICATION_*)*100,narrowBar: ..ZLP_BC_NARROW_BAR_*,subType: ..ZLP_BC_SUB_TYPE_*.replace('_BY_', 'x'), color: ( (..ZLP_BC_CODE_COLOR_*) ? ..ZLP_BC_CODE_COLOR_*.replace('CYAN', 'Cyan').replace('MAGENTA', 'Magenta').replace('BLACK', 'Black').replace('YELLOW', 'Yellow') : 'Black')}]\", }, data);\n\nsetResultVariables(variables);",
+				"quantum_work_servers":	[],
+				"quantum_max_concurrent_workers":	0
+			},
+			"connectors":	[{
+					"id":	"input",
+					"label":	"Input",
+					"type":	"input"
+				}, {
+					"id":	"success",
+					"label":	"Success",
+					"type":	"output",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}, {
+					"id":	"failure",
+					"label":	"Failure",
+					"type":	"error",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}],
+			"selected":	false,
+			"x":	684,
+			"y":	165,
+			"id":	"15f938de-8ad8-4521-b92a-17626e1bf868"
+		}, {
+			"collar":	"com.packz.quantum.packzflow.0",
+			"title":	"Handle Separation",
+			"parameters":	{
+				"quantum_logicals":	["PACKZFLOW"],
+				"packzflow":	"cloudflowlogical:PACKZFLOW",
+				"packz_action":	{
+					"Title":	"Handle Separations",
+					"Action":	"SEPARATIONHANDLING",
+					"Input":	[{
+							"type":	"com.nixps.quantum.parameter.0",
+							"parameter":	"file"
+						}],
+					"SeparationHandlingParams":	{
+						"SelectionOnly":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"selectionOnly"
+							}],
+						"AddSeparationName":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"addSeparationName"
+							}],
+						"AddSeparationType":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"addSeparationType"
+							}],
+						"AddSeparationColorType":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"addSeparationColorType"
+							}],
+						"AddSeparationColorValue":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"addSeparationColorValue"
+							}],
+						"RemoveSeparationName":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"removeSeparationName"
+							}],
+						"RemoveSeparationType":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"removeSeparationType"
+							}],
+						"RemoveUnused":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"removeUnused"
+							}],
+						"ReplaceSeparationFromName":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"replaceSeparationFromName"
+							}],
+						"ReplaceSeparationFromType":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"replaceSeparationFromType"
+							}],
+						"RemapToCMYK":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"remapToCMYK"
+							}],
+						"ReplaceSeparationToName":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"replaceSeparationToName"
+							}],
+						"ReplaceSeparationToType":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"replaceSeparationToType"
+							}],
+						"RenameIfPossible":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"renameIfPossible"
+							}],
+						"MarkAsDarkest":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"markAsDarkest"
+							}],
+						"InkOrderSpec":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"separationNamesOrder"
+							}],
+						"InkOrderAction":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"orderActionType"
+							}],
+						"InkOrderReverse":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"reverseOrder"
+							}],
+						"InkBookSpec":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"inkBookSpec"
+							}],
+						"InkBookAction":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"inkBookActionType"
+							}],
+						"InkBookDisableOthers":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"inkBookDisableOthers"
+							}],
+						"PrintingMethods":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"printingMethods"
+							}],
+						"PrintingMethodsComposer":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"printingMethodsComposer"
+							}]
+					},
+					"Configuration":	[{
+							"type":	"com.nixps.quantum.variable.0",
+							"variable":	"packzflowConfiguration",
+							"default_value":	"{}"
+						}]
+				},
+				"packz_save":	{
+					"Action":	"SAVE",
+					"Input":	[{
+							"type":	"com.nixps.quantum.parameter.0",
+							"parameter":	"file"
+						}],
+					"Output":	[{
+							"type":	"com.nixps.quantum.combine_url.0",
+							"base_url":	[{
+									"type":	"com.nixps.quantum.parameter.0",
+									"parameter":	"file"
+								}],
+							"combine_url":	[{
+									"type":	"com.nixps.quantum.parameter.0",
+									"parameter":	"output_redirect"
+								}]
+						}]
+				},
+				"addSeparationName":	"",
+				"addSeparationType":	"",
+				"addSeparationColorType":	null,
+				"addSeparationColorValue":	"",
+				"selectionOnly":	false,
+				"separationNamesOrder":	"[\"Cyan\", \"Magenta\", \"Yellow\", \"Black\"]",
+				"orderActionType":	"none",
+				"reverseOrder":	false,
+				"inkBookSpec":	"",
+				"inkBookActionType":	"none",
+				"inkBookDisableOthers":	false,
+				"removeSeparationName":	"",
+				"removeSeparationType":	"",
+				"removeUnused":	false,
+				"replaceSeparationFromName":	"*",
+				"replaceSeparationFromType":	"any",
+				"remapToCMYK":	false,
+				"renameIfPossible":	false,
+				"markAsDarkest":	false,
+				"replaceSeparationToName":	[{
+						"type":	"com.nixps.quantum.variable.0",
+						"variable":	"repeat.sub_json.color"
+					}],
+				"replaceSeparationToType":	"",
+				"printingMethods":	[{
+						"variable_name":	"",
+						"value":	[{
+								"type":	"com.nixps.quantum.value.0",
+								"value":	""
+							}]
+					}],
+				"printingMethodsComposer":	"",
+				"file":	[{
+						"type":	"com.nixps.quantum.data_from_previous_node.0",
+						"first_only":	true
+					}],
+				"output_custom":	[{
+						"type":	"com.nixps.quantum.value.0",
+						"value":	""
+					}],
+				"output_redirect":	[{
+						"type":	"com.nixps.quantum.parameter.0",
+						"parameter":	"output"
+					}],
+				"output":	[{
+						"type":	"com.nixps.quantum.parse_url.0",
+						"url":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"file"
+							}],
+						"parts":	"Name"
+					}, {
+						"type":	"com.nixps.quantum.value.0",
+						"value":	[{
+								"type":	"com.nixps.quantum.value.0",
+								"value":	""
+							}]
+					}],
+				"result_variable":	"packzflowConfiguration"
+			},
+			"parameter_references":	["packzflow", "packz_action", "packz_save"],
+			"connectors":	[{
+					"id":	"input",
+					"label":	"Input",
+					"type":	"input"
+				}, {
+					"id":	"success",
+					"label":	"Success",
+					"type":	"output",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}, {
+					"id":	"failure",
+					"label":	"Failure",
+					"type":	"error",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}],
+			"variant":	"com.packz.packzflow.separationhandling.1",
+			"selected":	false,
+			"x":	1739,
+			"y":	446,
+			"id":	"21112cc0-88f0-4705-9646-a34bd8c31879"
+		}, {
+			"collar":	"com.nixps.quantum.route.0",
+			"title":	"Route",
+			"parameters":	{
+				"lhs_value":	[{
+						"type":	"com.nixps.quantum.variable.0",
+						"variable":	"repeat.sub_json.color"
+					}],
+				"condition":	"equal to",
+				"lhs_data_type":	"AsIs",
+				"rhs_values":	[{
+						"value":	[{
+								"type":	"com.nixps.quantum.value.0",
+								"value":	"Black"
+							}],
+						"connector":	"match.0"
+					}],
+				"rhs_data_type":	"AsIs",
+				"accuracy":	0.001000,
+				"case_free":	false
+			},
+			"connectors":	[{
+					"id":	"input",
+					"label":	"Input",
+					"type":	"input"
+				}, {
+					"id":	"match.0",
+					"label":	"Match",
+					"type":	"output",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}, {
+					"id":	"mismatch",
+					"label":	"Mismatch",
+					"type":	"output",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}, {
+					"id":	"failure",
+					"label":	"Failure",
+					"type":	"error",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}],
+			"selected":	false,
+			"x":	1589,
+			"y":	448,
+			"id":	"5911d88d-f786-49b9-86bd-a482e4e35461"
+		}, {
+			"collar":	"com.packz.quantum.packzflow.0",
+			"title":	"Pageboxes",
+			"parameters":	{
+				"quantum_logicals":	["PACKZFLOW"],
+				"packzflow":	"cloudflowlogical:PACKZFLOW",
+				"packz_action":	{
+					"Title":	"Pageboxes",
+					"Action":	"PAGEBOXES",
+					"Input":	[{
+							"type":	"com.nixps.quantum.parameter.0",
+							"parameter":	"file"
+						}],
+					"PageboxesParams":	{
+						"ReferencePoint":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"referencePoint"
+							}],
+						"OrientationChange":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"orientationChange"
+							}],
+						"SetBox":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"setBox"
+							}],
+						"ToBox":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"toBox"
+							}],
+						"SetDirections":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"setDirections"
+							}],
+						"BoxWidth":	[{
+								"type":	"com.nixps.quantum.unit_converter.0",
+								"value":	[{
+										"type":	"com.nixps.quantum.parameter.0",
+										"parameter":	"boxWidth"
+									}],
+								"from_unit":	"mm",
+								"to_unit":	"pt"
+							}],
+						"BoxHeight":	[{
+								"type":	"com.nixps.quantum.unit_converter.0",
+								"value":	[{
+										"type":	"com.nixps.quantum.parameter.0",
+										"parameter":	"boxHeight"
+									}],
+								"from_unit":	"mm",
+								"to_unit":	"pt"
+							}],
+						"AddBox":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"addBox"
+							}],
+						"AddWidth":	[{
+								"type":	"com.nixps.quantum.unit_converter.0",
+								"value":	[{
+										"type":	"com.nixps.quantum.parameter.0",
+										"parameter":	"addWidth"
+									}],
+								"from_unit":	"mm",
+								"to_unit":	"pt"
+							}],
+						"AddHeight":	[{
+								"type":	"com.nixps.quantum.unit_converter.0",
+								"value":	[{
+										"type":	"com.nixps.quantum.parameter.0",
+										"parameter":	"addHeight"
+									}],
+								"from_unit":	"mm",
+								"to_unit":	"pt"
+							}]
+					},
+					"Configuration":	[{
+							"type":	"com.nixps.quantum.variable.0",
+							"variable":	"packzflowConfiguration",
+							"default_value":	"{}"
+						}]
+				},
+				"packz_save":	{
+					"Action":	"SAVE",
+					"Input":	[{
+							"type":	"com.nixps.quantum.parameter.0",
+							"parameter":	"file"
+						}],
+					"Output":	[{
+							"type":	"com.nixps.quantum.combine_url.0",
+							"base_url":	[{
+									"type":	"com.nixps.quantum.parameter.0",
+									"parameter":	"file"
+								}],
+							"combine_url":	[{
+									"type":	"com.nixps.quantum.parameter.0",
+									"parameter":	"output_redirect"
+								}]
+						}]
+				},
+				"referencePoint":	"Center",
+				"orientationChange":	false,
+				"setBox":	"media",
+				"toBox":	"artwork",
+				"setDirections":	"HorizontalAndVertical",
+				"boxWidth":	210,
+				"boxHeight":	297,
+				"addBox":	"media",
+				"addWidth":	0,
+				"addHeight":	0,
+				"file":	[{
+						"type":	"com.nixps.quantum.data_from_previous_node.0",
+						"first_only":	true
+					}],
+				"output_custom":	[{
+						"type":	"com.nixps.quantum.value.0",
+						"value":	""
+					}],
+				"output_redirect":	[{
+						"type":	"com.nixps.quantum.parameter.0",
+						"parameter":	"output"
+					}],
+				"output":	[{
+						"type":	"com.nixps.quantum.parse_url.0",
+						"url":	[{
+								"type":	"com.nixps.quantum.parameter.0",
+								"parameter":	"file"
+							}],
+						"parts":	"Name"
+					}, {
+						"type":	"com.nixps.quantum.value.0",
+						"value":	[{
+								"type":	"com.nixps.quantum.value.0",
+								"value":	""
+							}]
+					}]
+			},
+			"parameter_references":	["packzflow", "packz_action", "packz_save"],
+			"connectors":	[{
+					"id":	"input",
+					"label":	"Input",
+					"type":	"input"
+				}, {
+					"id":	"success",
+					"label":	"Success",
+					"type":	"output",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}, {
+					"id":	"failure",
+					"label":	"Failure",
+					"type":	"error",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}],
+			"variant":	"com.packz.packzflow.pageboxes.1",
+			"selected":	false,
+			"x":	1482,
+			"y":	437,
+			"id":	"f8fd90c8-6d72-4d51-9b54-d4c90e1e8863"
+		}, {
+			"collar":	"com.nixps.quantum.call_sub_flow.0",
+			"title":	"Call Sub Flow - SBC_Barcodes",
+			"parameters":	{
+				"whitepaper_name":	"SBC_Barcodes",
+				"sub_flow_name":	"SF_SBC_Barcode",
+				"files":	[{
+						"type":	"com.nixps.quantum.value.0",
+						"value":	""
+					}],
+				"variables":	{
+					"serviceOrder":	[{
+							"type":	"com.nixps.quantum.variable.0",
+							"variable":	"serviceOrder"
+						}],
+					"sandboxTesting":	[{
+							"type":	"com.nixps.quantum.variable.0",
+							"variable":	"sandboxTesting",
+							"default_value":	""
+						}]
+				},
+				"return_variable":	""
+			},
+			"connectors":	[{
+					"id":	"input",
+					"label":	"Input",
+					"type":	"input"
+				}, {
+					"id":	"success",
+					"label":	"Success",
+					"type":	"output",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}, {
+					"id":	"failure",
+					"label":	"Failure",
+					"type":	"error",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}],
+			"selected":	false,
+			"x":	589,
+			"y":	513,
+			"id":	"b6927fe1-c627-4919-9a54-7d2be02be005"
+		}, {
+			"collar":	"com.nixps.quantum.start_from_kiosk.0",
+			"title":	"Start From Kiosk",
+			"parameters":	{
+				"name":	"SBC_Barcodes",
+				"workable_name":	[{
+						"type":	"com.nixps.quantum.variable.0",
+						"variable":	"serviceOrder"
+					}, {
+						"type":	"com.nixps.quantum.value.0",
+						"value":	"_SBC_Barcodes"
+					}],
+				"jacket_name":	[{
+						"type":	"com.nixps.quantum.value.0",
+						"value":	""
+					}],
+				"priority":	50,
+				"allow_guest":	false,
+				"access_for_scopes":	"",
+				"scope_from_user":	false,
+				"options_layout":	{
+					"type":	"bootstrapGrid",
+					"parameters":	[[{
+								"content":	"id",
+								"width":	{
+									"md":	12
+								}
+							}], [{
+								"content":	"37bd2586-b51b-f3ce-6873-821458b6aa9f",
+								"width":	{
+									"md":	12
+								}
+							}]]
+				},
+				"options":	[{
+						"name":	"defaultname",
+						"variable":	"",
+						"element":	{
+							"id":	"id",
+							"type":	"ErrorMessage",
+							"options":	{
+						}
+						}
+					}, {
+						"name":	"Service Order",
+						"variable":	"serviceOrder",
+						"storage_unit":	null,
+						"edit_type":	"string",
+						"default":	"",
+						"component":	{
+							"id":	"37bd2586-b51b-f3ce-6873-821458b6aa9f",
+							"type":	"Input",
+							"options":	{
+								"value":	"",
+								"placeholder":	"type here",
+								"pattern":	"\\d{9}",
+								"patternMessage":	"",
+								"disabled":	false,
+								"type":	"text"
+							}
+						},
+						"required":	true,
+						"helptext":	"Core 9 digit service order number"
+					}],
+				"upload_files_mode":	"None",
+				"enable_upload":	true,
+				"maximum_upload_mb":	1024,
+				"enable_file_browser":	true,
+				"upload_url":	"cloudflow://PP_FILE_STORE/Incoming/",
+				"upload_time_out":	1440,
+				"handle_files_separately":	false,
+				"category":	"",
+				"work_servers":	[],
+				"access_for_attributes":	"admin",
+				"use_project_form":	false,
+				"project_form_name":	"",
+				"project_variable":	"project_data"
+			},
+			"connectors":	[{
+					"id":	"success",
+					"label":	"Success",
+					"type":	"output",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}, {
+					"id":	"failure",
+					"label":	"Failure",
+					"type":	"error",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}],
+			"selected":	false,
+			"x":	444,
+			"y":	513,
+			"id":	"194af0fb-678f-4a7f-bab1-5c2507f7ba8f"
+		}, {
+			"collar":	"com.nixps.quantum.end.0",
+			"title":	"End",
+			"parameters":	{
+				"delay":	0,
+				"delete_jacket":	false
+			},
+			"connectors":	[{
+					"id":	"input",
+					"label":	"Input",
+					"type":	"input"
+				}],
+			"selected":	false,
+			"x":	741,
+			"y":	513,
+			"id":	"79373b06-0f2b-48fd-896a-2abc51500f5e"
+		}, {
+			"collar":	"com.nixps.quantum.start_from_kiosk.0",
+			"title":	"Start From Kiosk - Sandbox",
+			"parameters":	{
+				"name":	"SBC Barcodes Sandbox",
+				"workable_name":	[{
+						"type":	"com.nixps.quantum.variable.0",
+						"variable":	"serviceOrder"
+					}, {
+						"type":	"com.nixps.quantum.value.0",
+						"value":	"_SBC_Barcodes"
+					}],
+				"jacket_name":	[{
+						"type":	"com.nixps.quantum.value.0",
+						"value":	""
+					}],
+				"priority":	50,
+				"allow_guest":	false,
+				"access_for_scopes":	"",
+				"access_for_attributes":	"admin",
+				"scope_from_user":	false,
+				"use_project_form":	false,
+				"project_form_name":	"",
+				"project_variable":	"project_data",
+				"options_layout":	{
+					"type":	"bootstrapGrid",
+					"parameters":	[[{
+								"content":	"id",
+								"width":	{
+									"md":	12
+								}
+							}], [{
+								"content":	"1020118a-a484-1cce-6586-9f7e8e4e8e1d",
+								"width":	{
+									"md":	12
+								}
+							}], [{
+								"content":	"70ec1a4e-9499-b6e9-1038-ee9f9d4c26ca",
+								"width":	{
+									"md":	12
+								}
+							}]]
+				},
+				"options":	[{
+						"name":	"defaultname",
+						"variable":	"",
+						"element":	{
+							"id":	"id",
+							"type":	"ErrorMessage",
+							"options":	{
+						}
+						}
+					}, {
+						"name":	"Service Order",
+						"variable":	"serviceOrder",
+						"storage_unit":	null,
+						"edit_type":	"string",
+						"default":	"",
+						"component":	{
+							"id":	"1020118a-a484-1cce-6586-9f7e8e4e8e1d",
+							"type":	"Input",
+							"options":	{
+								"value":	"",
+								"placeholder":	"type here",
+								"pattern":	"\\d{9}",
+								"patternMessage":	"",
+								"disabled":	false,
+								"type":	"text"
+							}
+						},
+						"required":	true,
+						"helptext":	""
+					}, {
+						"name":	"Manual Running Plant",
+						"variable":	"sandboxTesting",
+						"storage_unit":	null,
+						"edit_type":	"string",
+						"default":	"",
+						"component":	{
+							"id":	"70ec1a4e-9499-b6e9-1038-ee9f9d4c26ca",
+							"type":	"Input",
+							"options":	{
+								"value":	"",
+								"placeholder":	"",
+								"pattern":	"",
+								"patternMessage":	"",
+								"disabled":	false,
+								"type":	"text"
+							}
+						},
+						"required":	false,
+						"helptext":	"For testing on sandbox, add a plant number or AWS name"
+					}],
+				"upload_files_mode":	"None",
+				"enable_upload":	true,
+				"maximum_upload_mb":	1024,
+				"enable_file_browser":	true,
+				"upload_url":	"cloudflow://PP_FILE_STORE/Incoming/",
+				"upload_time_out":	1440,
+				"handle_files_separately":	false,
+				"category":	"",
+				"work_servers":	[]
+			},
+			"connectors":	[{
+					"id":	"success",
+					"label":	"Success",
+					"type":	"output",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}, {
+					"id":	"failure",
+					"label":	"Failure",
+					"type":	"error",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}],
+			"selected":	false,
+			"x":	444,
+			"y":	608,
+			"id":	"1848f8b5-0581-4683-8faa-4e9752d46f07"
+		}, {
+			"collar":	"com.nixps.quantum.start_sub_flow.0",
+			"title":	"Start Sub Flow",
+			"parameters":	{
+				"name":	"SF_SBC_Barcode",
+				"variables":	[],
+				"check_variables":	true
+			},
+			"connectors":	[{
+					"id":	"success",
+					"label":	"Success",
+					"type":	"output",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}, {
+					"id":	"failure",
+					"label":	"Failure",
+					"type":	"error",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}],
+			"selected":	false,
+			"x":	428,
+			"y":	171,
+			"id":	"5d455d3c-5fa4-4166-ba0e-251568b4996d"
+		}, {
+			"collar":	"com.nixps.quantum.call_sub_flow.0",
+			"title":	"Call Sub Flow - Job Delivery GET - Service Order + Plant",
+			"parameters":	{
+				"whitepaper_name":	"SBC_CallJobDelivery",
+				"sub_flow_name":	"SF_CallJobDeliveryGetServiceOrderPlant",
+				"files":	[{
+						"type":	"com.nixps.quantum.value.0",
+						"value":	""
+					}],
+				"variables":	[{
+						"type":	"com.nixps.quantum.all_variables.0"
+					}],
+				"return_variable":	""
+			},
+			"connectors":	[{
+					"id":	"input",
+					"label":	"Input",
+					"type":	"input"
+				}, {
+					"id":	"success",
+					"label":	"Success",
+					"type":	"output",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}, {
+					"id":	"failure",
+					"label":	"Failure",
+					"type":	"error",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}],
+			"selected":	false,
+			"x":	1235,
+			"y":	57,
+			"id":	"73e1f2ef-d0b2-4531-cc19-53784ede6221"
+		}, {
+			"collar":	"com.nixps.quantum.call_sub_flow.0",
+			"title":	"Call Sub Flow - SBC_RunningCf",
+			"parameters":	{
+				"whitepaper_name":	"SBC_RunningCf",
+				"sub_flow_name":	"SF_RunningCf",
+				"files":	[{
+						"type":	"com.nixps.quantum.value.0",
+						"value":	""
+					}],
+				"variables":	[{
+						"type":	"com.nixps.quantum.all_variables.0"
+					}],
+				"return_variable":	""
+			},
+			"connectors":	[{
+					"id":	"input",
+					"label":	"Input",
+					"type":	"input"
+				}, {
+					"id":	"success",
+					"label":	"Success",
+					"type":	"output",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}, {
+					"id":	"failure",
+					"label":	"Failure",
+					"type":	"error",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}],
+			"selected":	false,
+			"x":	817,
+			"y":	152,
+			"id":	"319a7000-470d-f8ff-7c8f-e1f3eee9cd31"
+		}, {
+			"collar":	"com.nixps.quantum.script.0",
+			"title":	"Script",
+			"parameters":	{
+				"variables":	{
+					"sandboxTesting":	[{
+							"type":	"com.nixps.quantum.variable.0",
+							"variable":	"sandboxTesting",
+							"default_value":	""
+						}]
+				},
+				"files":	[{
+						"type":	"com.nixps.quantum.value.0",
+						"value":	""
+					}],
+				"log_function_feedback":	true,
+				"fail_on_function_errors":	true,
+				"include_scripts":	[],
+				"script_file":	"",
+				"script":	"var sandboxTesting = getParameters().variables.sandboxTesting || \"\";\nconsole.log(\"Sandbox Testing:\", sandboxTesting);\n\nif (sandboxTesting === \"\") {\n    setOutput(\"other.empty\");\n    }\n    \n     else {\n        setOutput(\"other.exist\");\n        }",
+				"quantum_work_servers":	[],
+				"quantum_max_concurrent_workers":	0
+			},
+			"connectors":	[{
+					"id":	"input",
+					"label":	"Input",
+					"type":	"input"
+				}, {
+					"id":	"success",
+					"label":	"Success",
+					"type":	"output",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}, {
+					"id":	"other.empty",
+					"label":	"other.empty",
+					"type":	"output",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}, {
+					"id":	"other.exist",
+					"label":	"other.exist",
+					"type":	"output",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}, {
+					"id":	"failure",
+					"label":	"Failure",
+					"type":	"error",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}],
+			"selected":	false,
+			"x":	950,
+			"y":	158,
+			"id":	"30f3f904-57ee-1366-b7ea-e5b9e38715c7"
+		}, {
+			"collar":	"com.nixps.quantum.set_variable.0",
+			"title":	"Set Variable",
+			"parameters":	{
+				"variables":	[{
+						"variable_name":	"plantId",
+						"value":	[{
+								"type":	"com.nixps.quantum.variable.0",
+								"variable":	"sandboxTesting"
+							}]
+					}]
+			},
+			"connectors":	[{
+					"id":	"input",
+					"label":	"Input",
+					"type":	"input"
+				}, {
+					"id":	"success",
+					"label":	"Success",
+					"type":	"output",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}, {
+					"id":	"failure",
+					"label":	"Failure",
+					"type":	"error",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}],
+			"selected":	false,
+			"x":	1083,
+			"y":	209,
+			"id":	"6b5f6513-f896-c52d-258b-6dfade2b9434"
+		}, {
+			"collar":	"com.nixps.quantum.set_variable.0",
+			"title":	"Set Variable",
+			"parameters":	{
+				"variables":	[{
+						"variable_name":	"plantId",
+						"value":	[{
+								"type":	"com.nixps.quantum.variable.0",
+								"variable":	"runningPlantId"
+							}]
+					}]
+			},
+			"connectors":	[{
+					"id":	"input",
+					"label":	"Input",
+					"type":	"input"
+				}, {
+					"id":	"success",
+					"label":	"Success",
+					"type":	"output",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}, {
+					"id":	"failure",
+					"label":	"Failure",
+					"type":	"error",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}],
+			"selected":	false,
+			"x":	1083,
+			"y":	114,
+			"id":	"115f9cd0-7c3a-b788-1d45-cb72bb2bc55f"
+		}, {
+			"collar":	"com.nixps.quantum.call_sub_flow.0",
+			"title":	"Call Sub Flow - GFS Variables",
+			"parameters":	{
+				"whitepaper_name":	"SBC_ConfigGfsVariables",
+				"sub_flow_name":	"SF_CreateGfsVariables",
+				"files":	[{
+						"type":	"com.nixps.quantum.value.0",
+						"value":	""
+					}],
+				"variables":	[{
+						"type":	"com.nixps.quantum.all_variables.0"
+					}],
+				"return_variable":	""
+			},
+			"connectors":	[{
+					"id":	"input",
+					"label":	"Input",
+					"type":	"input"
+				}, {
+					"id":	"success",
+					"label":	"Success",
+					"type":	"output",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}, {
+					"id":	"failure",
+					"label":	"Failure",
+					"type":	"error",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}],
+			"selected":	false,
+			"x":	1357,
+			"y":	57,
+			"id":	"844b0514-df82-f7ce-98d7-587605389dd6"
+		}, {
+			"collar":	"com.nixps.quantum.call_sub_flow.0",
+			"title":	"Call Sub Flow - SBC_JobUrlJobService",
+			"parameters":	{
+				"whitepaper_name":	"SBC_JobUrlJobService",
+				"sub_flow_name":	"SF_JobUrlJobService",
+				"files":	[{
+						"type":	"com.nixps.quantum.value.0",
+						"value":	""
+					}],
+				"variables":	[{
+						"type":	"com.nixps.quantum.all_variables.0"
+					}],
+				"return_variable":	""
+			},
+			"connectors":	[{
+					"id":	"input",
+					"label":	"Input",
+					"type":	"input"
+				}, {
+					"id":	"success",
+					"label":	"Success",
+					"type":	"output",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}, {
+					"id":	"failure",
+					"label":	"Failure",
+					"type":	"error",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}],
+			"selected":	false,
+			"x":	1488,
+			"y":	38,
+			"id":	"480ad9ef-0552-98c0-e5ef-2a9db6496f81"
+		}, {
+			"collar":	"com.nixps.quantum.return_from_sub_flow.0",
+			"title":	"Return From Sub Flow",
+			"parameters":	{
+				"files":	[{
+						"type":	"com.nixps.quantum.value.0",
+						"value":	""
+					}],
+				"variables":	{
+			},
+				"return_failure":	false
+			},
+			"connectors":	[{
+					"id":	"input",
+					"label":	"Input",
+					"type":	"input"
+				}, {
+					"id":	"failure",
+					"label":	"Failure",
+					"type":	"error",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}],
+			"selected":	false,
+			"x":	1824,
+			"y":	597,
+			"id":	"92cd1a06-bf22-2c92-5535-7341b79eb501"
+		}, {
+			"collar":	"com.nixps.quantum.return_from_sub_flow.0",
+			"title":	"Return From Sub Flow",
+			"parameters":	{
+				"files":	[{
+						"type":	"com.nixps.quantum.value.0",
+						"value":	""
+					}],
+				"variables":	{
+			},
+				"return_failure":	false
+			},
+			"connectors":	[{
+					"id":	"input",
+					"label":	"Input",
+					"type":	"input"
+				}, {
+					"id":	"failure",
+					"label":	"Failure",
+					"type":	"error",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}],
+			"selected":	false,
+			"x":	1862,
+			"y":	85,
+			"id":	"9be21674-ad14-5278-7025-39271b634c04"
+		}, {
+			"collar":	"com.nixps.quantum.list_folder.0",
+			"title":	"Select Files 1",
+			"parameters":	{
+				"files":	[{
+						"type":	"com.nixps.quantum.variable.0",
+						"variable":	"serviceOrderFolderUrl"
+					}, {
+						"type":	"com.nixps.quantum.value.0",
+						"value":	"/"
+					}, {
+						"type":	"com.nixps.quantum.variable.0",
+						"variable":	"cfgGfsFolders.folder030"
+					}, {
+						"type":	"com.nixps.quantum.value.0",
+						"value":	"/"
+					}],
+				"recursive":	false,
+				"file_name_pattern":	".*",
+				"expected_nr_files":	"Any"
+			},
+			"connectors":	[{
+					"id":	"input",
+					"label":	"Input",
+					"type":	"input"
+				}, {
+					"id":	"success",
+					"label":	"Success",
+					"type":	"output",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}, {
+					"id":	"failure",
+					"label":	"Failure",
+					"type":	"error",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}],
+			"selected":	false,
+			"x":	1615,
+			"y":	48,
+			"id":	"c240c484-b0b5-dbaf-599e-bb5f2572b21c"
+		}, {
+			"collar":	"com.nixps.quantum.delete_file.0",
+			"title":	"Delete File",
+			"parameters":	{
+				"files":	[{
+						"type":	"com.nixps.quantum.data_from_previous_node.0"
+					}],
+				"delete_enclosing_folder":	false,
+				"ignore_missing_file":	true
+			},
+			"connectors":	[{
+					"id":	"input",
+					"label":	"Input",
+					"type":	"input"
+				}, {
+					"id":	"success",
+					"label":	"Success",
+					"type":	"output",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}, {
+					"id":	"failure",
+					"label":	"Failure",
+					"type":	"error",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}],
+			"selected":	false,
+			"x":	1729,
+			"y":	49,
+			"id":	"d851c050-23c6-37df-76b3-359fce802613"
+		}, {
+			"collar":	"com.nixps.quantum.script.0",
+			"title":	"Script\nRemove Dot in BWR",
+			"parameters":	{
+				"variables":	[{
+						"type":	"com.nixps.quantum.all_variables.0"
+					}],
+				"files":	[{
+						"type":	"com.nixps.quantum.data_from_previous_node.0",
+						"first_only":	false
+					}],
+				"log_function_feedback":	true,
+				"fail_on_function_errors":	true,
+				"include_scripts":	[],
+				"script_file":	"",
+				"script":	"//var BarcodeBwrUnderscore = getParameters().variables.repeat.sub_json.bwr;\n//var res = BarcodeBwrUnderscore.replace(/\\./g,'_');\n\n\n//setResultVariables({barcode:theBarcodeParameters});\n\n\nvar l_values=getVariables().variables;\nBwrUnderscore = (l_values.repeat.sub_json.bwr);\nvar BwrUnderscore = BwrUnderscore.split('.').join('_');\n\nsetResults({ variables:{BwrReplaceUnderscore:[(BwrUnderscore)] } });",
+				"quantum_work_servers":	[],
+				"quantum_max_concurrent_workers":	0
+			},
+			"connectors":	[{
+					"id":	"input",
+					"label":	"Input",
+					"type":	"input"
+				}, {
+					"id":	"success",
+					"label":	"Success",
+					"type":	"output",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}, {
+					"id":	"failure",
+					"label":	"Failure",
+					"type":	"error",
+					"collar":	"com.nixps.quantum.conductor.0"
+				}],
+			"selected":	false,
+			"x":	1273,
+			"y":	437,
+			"id":	"f985ed2d-3f69-d1b8-7564-e8f553837ca6"
+		}],
+	"comments":	[{
+			"id":	"b1562428-13e6-716b-165f-516f2539f43d",
+			"comment":	"Key:\n[Created By] for new workflows that have been created.\n[Added] for new features.\n[Changed] for changes in existing functionality.\n[Deprecated] for once-stable features removed in upcoming releases.\n[Removed] for deprecated features removed in this release.\n[Fixed] for any bug fixes.\n\nWrite all dates in YYYY.MM.DD\n\nDescription: Creates Barcodes.\n\nInput: ServiceOrder\nSub-Flow Dependencies: \nSBC_CallJobDelivery\nSBC_RunningCf\nSBC_ConfigGfsVariables\nSBC_JobUrlJobService\n\nOutput: Barcodes into GFS folder - 030_Barcodes\n\n# Change Log\nAll notable changes to this project will be documented in this file. Latest edits at the top.\n\n## Version_19.1.2\n### Created By  - Paul Mills\nAdded nodes to delete files from 030 Folder\n\n\n## Version_19.1.1\n### Created By  - Paul Mills\nChanged End Node &amp; Unhandled Problem node to be followed with a Return From Sub Flow Node\nChanged naming structure of output barcodes\n\n\n## Version_19.1.0\n### Created By  - Paul Mills\nadded Nodes to delete files from 030 Folder\nadded to test from sandbox functionality\nadded SBCRunningCf SF\nadded GFS variables SF\n\n\n## Version_001_2018.07.11\n### Created By  - Paul Mills\n- Additional notes when needed.\n\n",
+			"x":	5,
+			"y":	20,
+			"width":	407,
+			"height":	484
+		}, {
+			"id":	"b7d5caa7-d61a-042b-9cbf-68c4569324b0",
+			"comment":	"Select Barcode Template",
+			"x":	958,
+			"y":	381,
+			"width":	187,
+			"height":	170
+		}, {
+			"id":	"62132c63-d58b-bf26-6261-ef9fcbc13a1e",
+			"comment":	"Adjust Barcode Color",
+			"x":	1696,
+			"y":	411,
+			"width":	167,
+			"height":	126
+		}, {
+			"id":	"4bbe69ac-13a6-bfa7-a73a-206df1c0bf00",
+			"comment":	"Call Fast",
+			"x":	654,
+			"y":	107,
+			"width":	139,
+			"height":	162
+		}, {
+			"id":	"003b368d-cb2c-2c7d-dce3-fadefb72cd5a",
+			"comment":	"Rename Jacket/Workable",
+			"x":	524,
+			"y":	124,
+			"width":	124,
+			"height":	139
+		}, {
+			"id":	"9837d83d-0dc3-5064-b64a-2ae5064c976f",
+			"comment":	"Select JS",
+			"x":	1154,
+			"y":	399,
+			"width":	92,
+			"height":	174
+		}, {
+			"id":	"c6c4d4d5-1de0-7e72-00d0-09cadbe122f2",
+			"comment":	"Move Barcodes to 030_Barcodes folder",
+			"x":	1740,
+			"y":	209,
+			"width":	129,
+			"height":	167
+		}, {
+			"id":	"653be70f-a61d-7f20-ddb0-17571f9d2fd9",
+			"comment":	"to use when calling this sub flow (copy and paste to flow)",
+			"x":	549,
+			"y":	450,
+			"width":	172,
+			"height":	193
+		}, {
+			"id":	"c22f4af2-bfed-db39-4d43-4e70cd56f25b",
+			"comment":	"Delete files in 030_Barcodes folder",
+			"x":	1588,
+			"y":	0,
+			"width":	245,
+			"height":	163
+		}],
+	"connections":	[{
+			"id":	"875bd78e-2b6d-9b9c-943c-c7ae3771e0e0",
+			"from":	{
+				"node":	"99e84f3c-e61e-498b-a2e6-bfdfd4aad134",
+				"connector":	"success"
+			},
+			"to":	{
+				"node":	"bc20318e-1736-45f5-b9d7-1ae424027cd4",
+				"connector":	"input"
+			}
+		}, {
+			"id":	"32a7ccaf-3dc5-ef79-8658-6d4dc336d7c8",
+			"from":	{
+				"node":	"99e84f3c-e61e-498b-a2e6-bfdfd4aad134",
+				"connector":	"failure"
+			},
+			"to":	{
+				"node":	"99e84f3c-e61e-498b-a2e6-bfdfd4aad134",
+				"connector":	"input"
+			}
+		}, {
+			"id":	"762a8311-90cf-d309-ed50-60427ce0e70d",
+			"from":	{
+				"node":	"5911d88d-f786-49b9-86bd-a482e4e35461",
+				"connector":	"mismatch"
+			},
+			"to":	{
+				"node":	"21112cc0-88f0-4705-9646-a34bd8c31879",
+				"connector":	"input"
+			}
+		}, {
+			"id":	"a715f2e1-896f-3f82-7bac-1c7cf22f26ea",
+			"from":	{
+				"node":	"c6d3c3ef-a713-4243-9b2f-215ceb52a6e0",
+				"connector":	"repeat"
+			},
+			"to":	{
+				"node":	"99e84f3c-e61e-498b-a2e6-bfdfd4aad134",
+				"connector":	"input"
+			}
+		}, {
+			"id":	"69a59111-7f84-3107-740a-a8a2c5e0ef95",
+			"from":	{
+				"node":	"5d455d3c-5fa4-4166-ba0e-251568b4996d",
+				"connector":	"success"
+			},
+			"to":	{
+				"node":	"e66c076e-5ebe-4768-851e-c8a527036dbc",
+				"connector":	"input"
+			}
+		}, {
+			"id":	"9145e834-bcce-6dd4-a16e-400a29f813df",
+			"from":	{
+				"node":	"b6927fe1-c627-4919-9a54-7d2be02be005",
+				"connector":	"success"
+			},
+			"to":	{
+				"node":	"79373b06-0f2b-48fd-896a-2abc51500f5e",
+				"connector":	"input"
+			}
+		}, {
+			"id":	"b9f76346-f444-40c8-48d8-dbfd18a608ca",
+			"from":	{
+				"node":	"b6927fe1-c627-4919-9a54-7d2be02be005",
+				"connector":	"failure"
+			},
+			"to":	{
+				"node":	"79373b06-0f2b-48fd-896a-2abc51500f5e",
+				"connector":	"input"
+			}
+		}, {
+			"id":	"d4f93bdf-675b-0523-7ed8-b07eee7bd230",
+			"from":	{
+				"node":	"1848f8b5-0581-4683-8faa-4e9752d46f07",
+				"connector":	"success"
+			},
+			"to":	{
+				"node":	"b6927fe1-c627-4919-9a54-7d2be02be005",
+				"connector":	"input"
+			}
+		}, {
+			"id":	"01d95aa4-d37a-486d-7c84-d914275e662f",
+			"from":	{
+				"node":	"194af0fb-678f-4a7f-bab1-5c2507f7ba8f",
+				"connector":	"success"
+			},
+			"to":	{
+				"node":	"b6927fe1-c627-4919-9a54-7d2be02be005",
+				"connector":	"input"
+			}
+		}, {
+			"id":	"73f17565-1fbf-de11-bd9c-3eff1d11dcc4",
+			"from":	{
+				"node":	"6b5f6513-f896-c52d-258b-6dfade2b9434",
+				"connector":	"success"
+			},
+			"to":	{
+				"node":	"73e1f2ef-d0b2-4531-cc19-53784ede6221",
+				"connector":	"input"
+			}
+		}, {
+			"id":	"c599eeb0-c4e4-b62b-ab40-64d0c3c501c3",
+			"from":	{
+				"node":	"115f9cd0-7c3a-b788-1d45-cb72bb2bc55f",
+				"connector":	"success"
+			},
+			"to":	{
+				"node":	"73e1f2ef-d0b2-4531-cc19-53784ede6221",
+				"connector":	"input"
+			}
+		}, {
+			"id":	"49e685e1-b5c7-c84a-5369-0e34a25b4ccd",
+			"from":	{
+				"node":	"30f3f904-57ee-1366-b7ea-e5b9e38715c7",
+				"connector":	"other.exist"
+			},
+			"to":	{
+				"node":	"6b5f6513-f896-c52d-258b-6dfade2b9434",
+				"connector":	"input"
+			}
+		}, {
+			"id":	"d5de4f7e-3655-4954-99e2-48d59c6db28e",
+			"from":	{
+				"node":	"30f3f904-57ee-1366-b7ea-e5b9e38715c7",
+				"connector":	"other.empty"
+			},
+			"to":	{
+				"node":	"115f9cd0-7c3a-b788-1d45-cb72bb2bc55f",
+				"connector":	"input"
+			}
+		}, {
+			"id":	"93797c4c-dc41-d7cd-0db5-fb1959dadc1d",
+			"from":	{
+				"node":	"5911d88d-f786-49b9-86bd-a482e4e35461",
+				"connector":	"match.0"
+			},
+			"to":	{
+				"node":	"00475cf1-36cf-4490-a9bc-111242f6e70d",
+				"connector":	"input"
+			}
+		}, {
+			"id":	"b502ebec-bf79-10dd-1e22-06958452055f",
+			"from":	{
+				"node":	"21112cc0-88f0-4705-9646-a34bd8c31879",
+				"connector":	"success"
+			},
+			"to":	{
+				"node":	"00475cf1-36cf-4490-a9bc-111242f6e70d",
+				"connector":	"input"
+			}
+		}, {
+			"id":	"4ae0a2ff-3196-54c7-9a44-dcd1adc6c7eb",
+			"from":	{
+				"node":	"00475cf1-36cf-4490-a9bc-111242f6e70d",
+				"connector":	"success"
+			},
+			"to":	{
+				"node":	"c6d3c3ef-a713-4243-9b2f-215ceb52a6e0",
+				"connector":	"next"
+			}
+		}, {
+			"id":	"626c4587-b261-fcaa-9102-1ca90c837213",
+			"from":	{
+				"node":	"319a7000-470d-f8ff-7c8f-e1f3eee9cd31",
+				"connector":	"success"
+			},
+			"to":	{
+				"node":	"30f3f904-57ee-1366-b7ea-e5b9e38715c7",
+				"connector":	"input"
+			}
+		}, {
+			"id":	"5a38774c-d647-b15b-1700-07929c29d457",
+			"from":	{
+				"node":	"73e1f2ef-d0b2-4531-cc19-53784ede6221",
+				"connector":	"success"
+			},
+			"to":	{
+				"node":	"844b0514-df82-f7ce-98d7-587605389dd6",
+				"connector":	"input"
+			}
+		}, {
+			"id":	"58d7222f-0f84-8e8b-998b-eec0525c9efc",
+			"from":	{
+				"node":	"844b0514-df82-f7ce-98d7-587605389dd6",
+				"connector":	"success"
+			},
+			"to":	{
+				"node":	"480ad9ef-0552-98c0-e5ef-2a9db6496f81",
+				"connector":	"input"
+			}
+		}, {
+			"id":	"9a5e77d3-efe5-6452-d143-161e6c9e6350",
+			"from":	{
+				"node":	"568f7445-ab3d-4c92-bda1-2dae95600460",
+				"connector":	"failure"
+			},
+			"to":	{
+				"node":	"92cd1a06-bf22-2c92-5535-7341b79eb501",
+				"connector":	"input"
+			}
+		}, {
+			"id":	"4812e9b6-a25f-25c6-e079-f159117a4ebf",
+			"from":	{
+				"node":	"c6d3c3ef-a713-4243-9b2f-215ceb52a6e0",
+				"connector":	"success"
+			},
+			"to":	{
+				"node":	"9be21674-ad14-5278-7025-39271b634c04",
+				"connector":	"input"
+			}
+		}, {
+			"id":	"78cfd1f1-ff61-c965-322c-bc94b34f5433",
+			"from":	{
+				"node":	"f8fd90c8-6d72-4d51-9b54-d4c90e1e8863",
+				"connector":	"success"
+			},
+			"to":	{
+				"node":	"5911d88d-f786-49b9-86bd-a482e4e35461",
+				"connector":	"input"
+			}
+		}, {
+			"id":	"4da689f9-c9e7-40a9-e059-a1c4640534ef",
+			"from":	{
+				"node":	"e66c076e-5ebe-4768-851e-c8a527036dbc",
+				"connector":	"success"
+			},
+			"to":	{
+				"node":	"15f938de-8ad8-4521-b92a-17626e1bf868",
+				"connector":	"input"
+			}
+		}, {
+			"id":	"1694fe81-6ae7-7c7a-51eb-d2ac2ee12423",
+			"from":	{
+				"node":	"15f938de-8ad8-4521-b92a-17626e1bf868",
+				"connector":	"success"
+			},
+			"to":	{
+				"node":	"319a7000-470d-f8ff-7c8f-e1f3eee9cd31",
+				"connector":	"input"
+			}
+		}, {
+			"id":	"cfd09132-e2fb-a545-be9c-24cf236656af",
+			"from":	{
+				"node":	"d851c050-23c6-37df-76b3-359fce802613",
+				"connector":	"success"
+			},
+			"to":	{
+				"node":	"c6d3c3ef-a713-4243-9b2f-215ceb52a6e0",
+				"connector":	"input"
+			}
+		}, {
+			"id":	"e0f99fa4-9515-3f91-4ab1-38b99d3bf775",
+			"from":	{
+				"node":	"480ad9ef-0552-98c0-e5ef-2a9db6496f81",
+				"connector":	"success"
+			},
+			"to":	{
+				"node":	"c240c484-b0b5-dbaf-599e-bb5f2572b21c",
+				"connector":	"input"
+			}
+		}, {
+			"id":	"d2ec2115-3d24-2456-ee15-492e38cfa814",
+			"from":	{
+				"node":	"c240c484-b0b5-dbaf-599e-bb5f2572b21c",
+				"connector":	"success"
+			},
+			"to":	{
+				"node":	"d851c050-23c6-37df-76b3-359fce802613",
+				"connector":	"input"
+			}
+		}, {
+			"id":	"1599002f-3769-6b00-7feb-1039aadc070e",
+			"from":	{
+				"node":	"bc20318e-1736-45f5-b9d7-1ae424027cd4",
+				"connector":	"success"
+			},
+			"to":	{
+				"node":	"f985ed2d-3f69-d1b8-7564-e8f553837ca6",
+				"connector":	"input"
+			}
+		}, {
+			"id":	"252b370f-cb2b-6de3-eb5c-233cf7e04d7b",
+			"from":	{
+				"node":	"81217eb9-fabf-4abd-a907-3b12e5b54f87",
+				"connector":	"success"
+			},
+			"to":	{
+				"node":	"f8fd90c8-6d72-4d51-9b54-d4c90e1e8863",
+				"connector":	"input"
+			}
+		}, {
+			"id":	"c8c47e2c-fc83-0cf4-bfab-42cd0adb65df",
+			"from":	{
+				"node":	"f985ed2d-3f69-d1b8-7564-e8f553837ca6",
+				"connector":	"success"
+			},
+			"to":	{
+				"node":	"81217eb9-fabf-4abd-a907-3b12e5b54f87",
+				"connector":	"input"
+			}
+		}]
+}
